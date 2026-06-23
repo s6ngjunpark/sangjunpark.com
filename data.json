@@ -1,0 +1,68 @@
+{
+  "name": "Sangjun Park",
+  "jobTitle": "Mechanical Engineer · Samsung Electronics · Seoul, Korea",
+  "contact": [
+    { "label": "junep.park18240@gmail.com", "href": "mailto:junep.park18240@gmail.com" },
+    { "label": "s06june.park@samsung.com",  "href": "mailto:s06june.park@samsung.com" },
+    { "label": "linkedin.com/in/sangjun-park", "href": "https://www.linkedin.com/in/sangjun-park-62b3452b3" }
+  ],
+  "bio": "Mechanical engineer specializing in smart factory equipment design at Samsung Electronics. M.S. in Mechanical Engineering from Seoul National University, with research in DLP 3D printing. Seeking a PhD position abroad in advanced manufacturing or related fields.",
+  "photo": "",
+
+  "experience": [
+    {
+      "year": "2023 –",
+      "title": "Samsung Electronics — Production Technology Research Institute",
+      "desc": "VD equipment mechanical development · Smart Factory Center"
+    },
+    {
+      "year": "2021 – 2023",
+      "title": "M.S. Mechanical Engineering · Seoul National University",
+      "desc": "Advanced Manufacturing Technology Lab · DLP 3D printing research"
+    },
+    {
+      "year": "2017 – 2021",
+      "title": "B.S. Mechanical Engineering · Seoul National University",
+      "desc": ""
+    }
+  ],
+
+  "skills": [
+    "NX", "Inventor", "Python", "Excel",
+    "DLP 3D Printing", "Mechanical Design", "Smart Factory"
+  ],
+
+  "projects": [
+    {
+      "title": "Smart Factory Equipment Design",
+      "desc": "VD manufacturing equipment mechanical structure development at Samsung Electronics",
+      "image": ""
+    },
+    {
+      "title": "DLP 3D Printing Research",
+      "desc": "High-resolution photopolymerization process optimization · M.S. thesis",
+      "image": ""
+    }
+  ],
+
+  "research": [
+    {
+      "title": "논문 제목을 여기에 입력",
+      "meta": "저널 / 학회명 · 2023"
+    },
+    {
+      "title": "논문 제목을 여기에 입력",
+      "meta": "저널 / 학회명 · 2022"
+    }
+  ],
+
+  "hobbies": [
+    { "title": "취미명", "desc": "설명을 여기에 입력" },
+    { "title": "취미명", "desc": "설명을 여기에 입력" },
+    { "title": "취미명", "desc": "설명을 여기에 입력" }
+  ],
+
+  "photos": [
+    "", "", "", ""
+  ]
+}
