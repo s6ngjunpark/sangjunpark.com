@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangjun Park</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #fff; color: #1a1a1a; font-family: Georgia, serif; font-size: 14px; line-height: 1.6; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; background: #fff;
+      border-bottom: 0.5px solid #e0e0e0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 48px; z-index: 100;
+    }
+    /* 데스크톱: 햄버거 숨김 */
+    .hamburger { display: none; }
+    nav .nav-name {
+      font-family: sans-serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.03em; color: #1a1a1a; text-decoration: none;
+    }
+    nav .nav-links { display: flex; gap: 28px; }
+    nav .nav-links a {
+      font-family: sans-serif; font-size: 11px; color: #888;
+      letter-spacing: 0.04em; text-decoration: none; transition: color .2s;
+    }
+    nav .nav-links a:hover { color: #1a1a1a; }
+
+    /* 햄버거 버튼 - 모바일에서만 표시 */
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 1px; background: #1a1a1a;
+      transition: all .25s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* 모바일 드롭다운 메뉴 */
+    .mobile-menu {
+      display: none; position: fixed; top: 49px; left: 0; right: 0;
+      background: #fff; border-bottom: 0.5px solid #e0e0e0;
+      flex-direction: column; z-index: 99; padding: 8px 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: sans-serif; font-size: 13px; color: #555;
+      text-decoration: none; padding: 12px 28px;
+      border-bottom: 0.5px solid #f5f5f5; letter-spacing: 0.03em;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: #1a1a1a; background: #fafafa; }
+
+    /* ─── LAYOUT ─── */
+    .page { max-width: 860px; margin: 0 auto; padding: 0 48px; }
+
+    /* ─── HEADER ─── */
+    header { padding: 52px 0 40px; }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+    .header-left { display: flex; align-items: flex-start; gap: 20px; }
+    .profile-photo {
+      width: 72px; height: 72px; border-radius: 50%; background: #f0f0f0;
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .profile-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .header-name-block h1 { font-size: 36px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 6px; }
+    .header-name-block .job-title { font-family: sans-serif; font-size: 12px; color: #888; letter-spacing: 0.04em; margin-top: 6px; }
+    .header-contact { text-align: right; display: flex; flex-direction: column; gap: 5px; padding-top: 6px; flex-shrink: 0; }
+    .header-contact a { font-family: sans-serif; font-size: 11px; color: #888; text-decoration: none; transition: color .2s; }
+    .header-contact a:hover { color: #1a1a1a; }
+    .bio { margin-top: 26px; font-family: sans-serif; font-size: 13px; line-height: 1.85; color: #555; max-width: 560px; border-left: 1.5px solid #ccc; padding-left: 16px; }
+
+    /* ─── SECTIONS ─── */
+    .divider { border: none; border-top: 0.5px solid #e0e0e0; margin: 0 20px; }
+    section { padding: 36px 0; }
+    .section-label { font-family: sans-serif; font-size: 10px; letter-spacing: 0.14em; color: #aaa; text-transform: uppercase; margin-bottom: 22px; }
+
+    .entry { display: grid; grid-template-columns: 100px 1fr; gap: 0 16px; margin-bottom: 20px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-year { font-family: sans-serif; font-size: 11px; color: #aaa; padding-top: 2px; }
+    .entry-body h3 { font-family: sans-serif; font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 3px; }
+    .entry-body p { font-family: sans-serif; font-size: 12px; color: #888; line-height: 1.6; }
+
+    .skills-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-pill { font-family: sans-serif; font-size: 11px; color: #666; border: 0.5px solid #ddd; border-radius: 3px; padding: 3px 10px; }
+
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .proj-card { border: 0.5px solid #e8e8e8; border-radius: 5px; padding: 14px; }
+    .proj-img { width: 100%; height: 120px; background: #f5f5f5; border-radius: 3px; margin-bottom: 10px; overflow: hidden; }
+    .proj-img img { width: 100%; height: 100%; object-fit: cover; }
+    .proj-title { font-family: sans-serif; font-size: 12px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+    .proj-desc { font-family: sans-serif; font-size: 11px; color: #999; line-height: 1.6; }
+
+    .paper { padding-bottom: 16px; margin-bottom: 16px; border-bottom: 0.5px solid #f0f0f0; }
+    .paper:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .paper-title { font-family: sans-serif; font-size: 13px; font-style: italic; color: #333; margin-bottom: 4px; }
+    .paper-meta { font-family: sans-serif; font-size: 11px; color: #bbb; }
+
+    .hobby-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .hobby-item { border: 0.5px solid #e8e8e8; border-radius: 5px; padding: 14px; }
+    .hobby-title { font-family: sans-serif; font-size: 12px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+    .hobby-desc { font-family: sans-serif; font-size: 11px; color: #999; line-height: 1.6; }
+
+    .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .photo-thumb { height: 120px; background: #f0f0f0; border-radius: 4px; overflow: hidden; }
+    .photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .contact-row { display: flex; gap: 28px; flex-wrap: wrap; }
+    .contact-item { display: flex; align-items: center; gap: 7px; font-family: sans-serif; font-size: 12px; color: #666; text-decoration: none; transition: color .2s; }
+    .contact-item:hover { color: #1a1a1a; }
+    .contact-item svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    footer { padding: 32px 0; font-family: sans-serif; font-size: 11px; color: #ccc; text-align: center; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 640px) {
+      nav { padding: 14px 24px; }
+      nav .nav-links { display: none; }   /* 데스크톱 링크 숨김 */
+      .hamburger { display: flex; }       /* 햄버거 버튼 표시 - 왼쪽 */
+
+      .page { padding: 0 24px; }
+
+      header { padding: 36px 0 28px; }
+      .header-top { flex-direction: column; gap: 16px; }
+      .header-left { gap: 14px; }
+      .profile-photo { width: 56px; height: 56px; }
+      .header-name-block h1 { font-size: 26px; }
+      .header-contact { text-align: left; }
+
+      .entry { grid-template-columns: 72px 1fr; }
+
+      .project-grid { grid-template-columns: 1fr; }
+      .hobby-grid { grid-template-columns: 1fr 1fr; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .contact-row { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 데스크톱 + 모바일 공용 nav -->
+<nav>
+  <!-- 모바일용 햄버거 버튼 (왼쪽) -->
+  <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="nav-name" href="#" id="nav-name"></a>
+  <!-- 데스크톱용 링크 -->
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#photos">Photos</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- 모바일 드롭다운 -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#experience" class="menu-link">Experience</a>
+  <a href="#projects"   class="menu-link">Projects</a>
+  <a href="#research"   class="menu-link">Research</a>
+  <a href="#hobbies"    class="menu-link">Hobbies</a>
+  <a href="#photos"     class="menu-link">Photos</a>
+  <a href="#contact"    class="menu-link">Contact</a>
+</div>
+
+<div class="page">
+  <header>
+    <div class="header-top">
+      <div class="header-left">
+        <div class="profile-photo" id="profile-photo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <div class="header-name-block">
+          <h1 id="header-name"></h1>
+          <div class="job-title" id="job-title"></div>
+        </div>
+      </div>
+      <div class="header-contact" id="header-contact"></div>
+    </div>
+    <p class="bio" id="bio"></p>
+  </header>
+
+  <hr class="divider">
+  <section id="experience">
+    <div class="section-label">Experience &amp; Education</div>
+    <div id="experience-list"></div>
+  </section>
+
+  <hr class="divider">
+  <section id="skills">
+    <div class="section-label">Skills &amp; Tools</div>
+    <div class="skills-row" id="skills-row"></div>
+  </section>
+
+  <hr class="divider">
+  <section id="projects">
+    <div class="section-label">Projects</div>
+    <div class="project-grid" id="project-grid"></div>
+  </section>
+
+  <hr class="divider">
+  <section id="research">
+    <div class="section-label">Research &amp; Publications</div>
+    <div id="research-list"></div>
+  </section>
+
+  <hr class="divider">
+  <section id="hobbies">
+    <div class="section-label">Hobbies</div>
+    <div class="hobby-grid" id="hobby-grid"></div>
+  </section>
+
+  <hr class="divider">
+  <section id="photos">
+    <div class="section-label">Photos</div>
+    <div class="photo-grid" id="photo-grid"></div>
+  </section>
+
+  <hr class="divider">
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-row" id="contact-row"></div>
+  </section>
+
+  <footer id="footer"></footer>
+</div>
+
+<script>
+  // ─── 햄버거 메뉴 토글 ───────────────────────────────────
+  const btn  = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+  });
+
+  // 메뉴 링크 클릭 시 닫기
+  document.querySelectorAll('.menu-link').forEach(a => {
+    a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    });
+  });
+
+  // ─── data.json 로딩 ─────────────────────────────────────
+  fetch('data.json')
+    .then(r => r.json())
+    .then(d => {
+
+      document.title = d.name;
+      document.getElementById('nav-name').textContent   = d.name;
+      document.getElementById('header-name').textContent = d.name;
+      document.getElementById('job-title').textContent  = d.jobTitle;
+      document.getElementById('bio').textContent        = d.bio;
+      document.getElementById('footer').textContent     = '© ' + new Date().getFullYear() + ' ' + d.name;
+
+      if (d.photo) {
+        document.getElementById('profile-photo').innerHTML =
+          `<img src="${d.photo}" alt="${d.name}">`;
+      }
+
+      document.getElementById('header-contact').innerHTML =
+        d.contact.map(c => `<a href="${c.href}">${c.label}</a>`).join('');
+
+      document.getElementById('experience-list').innerHTML =
+        d.experience.map(e => `
+          <div class="entry">
+            <div class="entry-year">${e.year}</div>
+            <div class="entry-body">
+              <h3>${e.title}</h3>
+              ${e.desc ? `<p>${e.desc}</p>` : ''}
+            </div>
+          </div>`).join('');
+
+      document.getElementById('skills-row').innerHTML =
+        d.skills.map(s => `<span class="skill-pill">${s}</span>`).join('');
+
+      document.getElementById('project-grid').innerHTML =
+        d.projects.map(p => `
+          <div class="proj-card">
+            <div class="proj-img">${p.image ? `<img src="${p.image}" alt="${p.title}">` : ''}</div>
+            <div class="proj-title">${p.title}</div>
+            <div class="proj-desc">${p.desc}</div>
+          </div>`).join('');
+
+      document.getElementById('research-list').innerHTML =
+        d.research.map(r => `
+          <div class="paper">
+            <div class="paper-title">${r.title}</div>
+            <div class="paper-meta">${r.meta}</div>
+          </div>`).join('');
+
+      document.getElementById('hobby-grid').innerHTML =
+        d.hobbies.map(h => `
+          <div class="hobby-item">
+            <div class="hobby-title">${h.title}</div>
+            <div class="hobby-desc">${h.desc}</div>
+          </div>`).join('');
+
+      document.getElementById('photo-grid').innerHTML =
+        d.photos.filter(p => p).map(p => `
+          <div class="photo-thumb"><img src="${p}" alt=""></div>`).join('');
+
+      const icons = {
+        mail:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>',
+        linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>',
+        web:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>'
+      };
+      document.getElementById('contact-row').innerHTML =
+        d.contact.map(c => {
+          const icon = c.href.startsWith('mailto:') ? icons.mail
+            : c.href.includes('linkedin')           ? icons.linkedin
+            : icons.web;
+          return `<a class="contact-item" href="${c.href}" target="_blank">${icon}${c.label}</a>`;
+        }).join('');
+    });
+</script>
+</body>
+</html>
