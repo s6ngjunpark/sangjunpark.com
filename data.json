@@ -1,0 +1,132 @@
+{
+  "en": {
+    "name": "Sangjun Park",
+    "jobTitle": "Mechanical Engineer · Samsung Electronics · Seoul, Korea",
+    "bio": "Mechanical engineer specializing in smart factory equipment design at Samsung Electronics. M.S. in Mechanical Engineering from Seoul National University, with research in DLP 3D printing. Seeking a PhD position abroad in advanced manufacturing or related fields.",
+    "labels": {
+      "experience": "Experience & Education",
+      "skills": "Skills & Tools",
+      "projects": "Projects",
+      "research": "Research & Publications",
+      "hobbies": "Hobbies",
+      "photos": "Photos",
+      "contact": "Contact",
+      "downloadCV": "Download CV",
+      "messageTitle": "Send me a message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "messagePlaceholder": "Your message",
+      "sendButton": "Send",
+      "viewDetails": "View details",
+      "close": "Close"
+    },
+    "experience": [
+      { "year": "2023 –", "title": "Samsung Electronics — Production Technology Research Institute", "desc": "VD equipment mechanical development · Smart Factory Center" },
+      { "year": "2021 – 2023", "title": "M.S. Mechanical Engineering · Seoul National University", "desc": "Advanced Manufacturing Technology Lab · DLP 3D printing research" },
+      { "year": "2017 – 2021", "title": "B.S. Mechanical Engineering · Seoul National University", "desc": "" }
+    ],
+    "projects": [
+      {
+        "title": "Smart Factory Equipment Design",
+        "desc": "VD manufacturing equipment mechanical structure development at Samsung Electronics",
+        "image": "",
+        "detail": {
+          "overview": "Detailed description of this project goes here. Explain the problem, your approach, and the outcome.",
+          "images": [],
+          "tags": ["NX", "Mechanical Design", "Automation"]
+        }
+      },
+      {
+        "title": "DLP 3D Printing Research",
+        "desc": "High-resolution photopolymerization process optimization · M.S. thesis",
+        "image": "",
+        "detail": {
+          "overview": "Detailed description of this project goes here. Explain the problem, your approach, and the outcome.",
+          "images": [],
+          "tags": ["DLP", "3D Printing", "Polymer"]
+        }
+      }
+    ],
+    "research": [
+      { "title": "Paper title goes here", "meta": "Journal / Conference · 2023" },
+      { "title": "Paper title goes here", "meta": "Journal / Conference · 2022" }
+    ],
+    "hobbies": [
+      { "title": "Hobby", "desc": "Description goes here" },
+      { "title": "Hobby", "desc": "Description goes here" },
+      { "title": "Hobby", "desc": "Description goes here" }
+    ]
+  },
+
+  "ko": {
+    "name": "박상준",
+    "jobTitle": "기계공학 엔지니어 · 삼성전자 · 서울",
+    "bio": "삼성전자 생산기술연구소에서 스마트팩토리 장비 기구 설계를 담당하는 기계공학 엔지니어입니다. 서울대학교 기계공학과 석사로 DLP 3D 프린팅을 연구했으며, 첨단 생산기술 분야 해외 박사 진학을 준비하고 있습니다.",
+    "labels": {
+      "experience": "경력 및 학력",
+      "skills": "기술 및 도구",
+      "projects": "프로젝트",
+      "research": "연구 및 논문",
+      "hobbies": "취미",
+      "photos": "사진",
+      "contact": "연락처",
+      "downloadCV": "이력서 다운로드",
+      "messageTitle": "메시지 보내기",
+      "namePlaceholder": "이름",
+      "emailPlaceholder": "이메일",
+      "messagePlaceholder": "메시지 내용",
+      "sendButton": "보내기",
+      "viewDetails": "자세히 보기",
+      "close": "닫기"
+    },
+    "experience": [
+      { "year": "2023 –", "title": "삼성전자 — 생산기술연구소", "desc": "VD 장비 기구 개발 · 스마트팩토리센터" },
+      { "year": "2021 – 2023", "title": "기계공학 석사 · 서울대학교", "desc": "첨단생산기술연구실 · DLP 3D 프린팅 연구" },
+      { "year": "2017 – 2021", "title": "기계공학 학사 · 서울대학교", "desc": "" }
+    ],
+    "projects": [
+      {
+        "title": "스마트팩토리 장비 설계",
+        "desc": "삼성전자 VD 제조 장비 기구 구조 개발",
+        "image": "",
+        "detail": {
+          "overview": "프로젝트 상세 설명을 여기에 입력합니다. 문제 상황, 접근 방법, 결과를 설명하세요.",
+          "images": [],
+          "tags": ["NX", "기구 설계", "자동화"]
+        }
+      },
+      {
+        "title": "DLP 3D 프린팅 연구",
+        "desc": "고해상도 광중합 공정 최적화 · 석사 학위 논문",
+        "image": "",
+        "detail": {
+          "overview": "프로젝트 상세 설명을 여기에 입력합니다. 문제 상황, 접근 방법, 결과를 설명하세요.",
+          "images": [],
+          "tags": ["DLP", "3D 프린팅", "고분자"]
+        }
+      }
+    ],
+    "research": [
+      { "title": "논문 제목을 여기에 입력", "meta": "저널 / 학회명 · 2023" },
+      { "title": "논문 제목을 여기에 입력", "meta": "저널 / 학회명 · 2022" }
+    ],
+    "hobbies": [
+      { "title": "취미", "desc": "설명을 여기에 입력" },
+      { "title": "취미", "desc": "설명을 여기에 입력" },
+      { "title": "취미", "desc": "설명을 여기에 입력" }
+    ]
+  },
+
+  "common": {
+    "photo": "",
+    "cvFile": "cv.pdf",
+    "contact": [
+      { "label": "junep.park18240@gmail.com", "href": "mailto:junep.park18240@gmail.com" },
+      { "label": "s06june.park@samsung.com", "href": "mailto:s06june.park@samsung.com" },
+      { "label": "linkedin.com/in/sangjun-park", "href": "https://www.linkedin.com/in/sangjun-park-62b3452b3" }
+    ],
+    "skills": ["NX", "Inventor", "Python", "Excel", "DLP 3D Printing", "Mechanical Design", "Smart Factory"],
+    "photos": ["", "", "", ""],
+    "formspreeEndpoint": "https://formspree.io/f/xkololnz"
+  }
+}
