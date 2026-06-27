@@ -27,16 +27,6 @@
     ],
     "projects": [
       {
-        "title": "Smart Factory Equipment Design",
-        "desc": "VD manufacturing equipment mechanical structure development at Samsung Electronics",
-        "image": "",
-        "detail": {
-          "overview": "Detailed description of this project goes here. Explain the problem, your approach, and the outcome.",
-          "images": [],
-          "tags": ["NX", "Mechanical Design", "Automation"]
-        }
-      },
-      {
         "title": "DLP 3D Printing Research",
         "desc": "High-resolution photopolymerization process optimization · M.S. thesis",
         "image": "",
