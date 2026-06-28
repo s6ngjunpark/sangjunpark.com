@@ -108,7 +108,7 @@
   },
 
   "common": {
-    "photo": "",
+    "photo": "profile_img.jpg",
     "cvFile": "cv.pdf",
     "contact": [
       { "label": "junep.park18240@gmail.com", "href": "mailto:junep.park18240@gmail.com" },
